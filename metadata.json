@@ -1,0 +1,6 @@
+{
+  "name": "H+ Healthcare Platform",
+  "description": "Healthcare Operating System for Central Asia, connecting private clinics, medical centers, doctors, laboratories, and patients.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
