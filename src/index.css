@@ -1,17 +1,134 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Space Grotesk", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-brand: #2563EB;
+  --color-brand-hover: #1D4ED8;
+  --color-brand-light: #3B82F6;
+  --color-brand-50: #EFF6FF;
+  --color-brand-100: #DBEAFE;
+  --color-surface: #FFFFFF;
+  --color-surface-secondary: #F8FAFC;
+  --color-text: #0F172A;
+  --color-text-secondary: #475569;
+  --color-border: #E2E8F0;
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: #050B14;
+  background-color: #FFFFFF;
+  color: #0F172A;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
+}
+
+/* Site-wide readability pass: the previous UI used many micro-labels that were
+   too small on mobile and investor screens. Keep labels compact, but readable. */
+.text-\[8px\],
+.text-\[9px\],
+.text-\[10px\] {
+  font-size: 0.75rem !important;
+  line-height: 1.25rem !important;
+}
+
+.text-\[11px\],
+.text-xs {
+  font-size: 0.875rem !important;
+  line-height: 1.35rem !important;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  font-size: 0.9375rem;
+}
+
+/* Investor-style white surface normalization.
+   Several rebuilt pages were dark blue; the intended site direction is a clean
+   white company/investor presentation with restrained blue accents. */
+[class*="bg-[#020617]"] {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+}
+
+[class*="bg-[#020617]"] [class*="text-white"],
+[class*="bg-[#020617]"] [class*="text-slate-100"],
+[class*="bg-[#020617]"] [class*="text-slate-200"] {
+  color: #0F172A !important;
+}
+
+[class*="bg-[#020617]"] [class*="text-slate-300"],
+[class*="bg-[#020617]"] [class*="text-slate-400"],
+[class*="bg-[#020617]"] [class*="text-amber-50/80"] {
+  color: #475569 !important;
+}
+
+[class*="bg-[#020617]"] [class*="text-sky-"],
+[class*="bg-[#020617]"] [class*="text-emerald-"],
+[class*="bg-[#020617]"] [class*="text-amber-100"],
+[class*="bg-[#020617]"] [class*="text-amber-50"] {
+  color: #2563EB !important;
+}
+
+[class*="bg-[#020617]"] [class*="border-white/"],
+[class*="bg-[#020617]"] [class*="border-sky-"],
+[class*="bg-[#020617]"] [class*="border-emerald-"],
+[class*="bg-[#020617]"] [class*="border-amber-"] {
+  border-color: #E2E8F0 !important;
+}
+
+[class*="bg-[#020617]"] [class*="bg-white/"],
+[class*="bg-[#020617]"] [class*="bg-[#08111f]"],
+[class*="bg-[#020617]"] [class*="bg-sky-"],
+[class*="bg-[#020617]"] [class*="bg-emerald-"],
+[class*="bg-[#020617]"] [class*="bg-amber-"] {
+  background-color: #FFFFFF !important;
+}
+
+[class*="bg-[#020617]"] [class*="shadow-black"],
+[class*="bg-[#020617]"] [class*="shadow-sky"],
+[class*="bg-[#020617]"] [class*="shadow-emerald"] {
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08) !important;
+}
+
+[class*="bg-[#020617]"] section,
+[class*="bg-[#020617]"] [class*="rounded-2xl"],
+[class*="bg-[#020617]"] [class*="rounded-3xl"] {
+  background-color: #FFFFFF;
+}
+
+[class*="bg-[#020617]"] section[class*="rounded-3xl"] {
+  background-color: #F8FAFC !important;
+}
+
+[class*="bg-[#020617]"] [class*="rounded-2xl"],
+[class*="bg-[#020617]"] [class*="rounded-3xl"] {
+  border-color: #E2E8F0 !important;
+}
+
+[class*="bg-[#020617]"] [class*="bg-[#020617]"] {
+  background-color: #FFFFFF !important;
+}
+
+[class*="bg-[#020617]"] button[class*="bg-sky-"],
+[class*="bg-[#020617]"] button[class*="bg-emerald-"] {
+  background-color: #2563EB !important;
+  color: #FFFFFF !important;
+  border-color: #2563EB !important;
+}
+
+[class*="bg-[#020617]"] button[class*="bg-sky-"]:hover,
+[class*="bg-[#020617]"] button[class*="bg-emerald-"]:hover {
+  background-color: #1D4ED8 !important;
 }

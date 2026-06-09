@@ -1,9 +1,5 @@
-import React from 'react';
 import { motion } from 'motion/react';
-import { 
-  CheckCircle, MessageSquareQuote, ShieldCheck, Zap, 
-  HelpCircle, Sparkles, Server, Flame, GitGraph
-} from 'lucide-react';
+import { AlertCircle, CheckCircle2, ClipboardCheck, GitGraph, Layers, Server, ShieldCheck, Sparkles } from 'lucide-react';
 import { Language } from '../types';
 import { translations } from '../translations';
 
@@ -11,126 +7,149 @@ interface TractionProps {
   lang: Language;
 }
 
+const metricCards = [
+  { key: 'concept', icon: Sparkles },
+  { key: 'architecture', icon: Server },
+  { key: 'prototype', icon: GitGraph },
+  { key: 'pilot', icon: ShieldCheck },
+] as const;
+
+const progressIcons = [ClipboardCheck, Layers, GitGraph, CheckCircle2, ShieldCheck] as const;
+
+const statusStyles = [
+  'border-emerald-400/30 bg-emerald-400/10 text-emerald-200',
+  'border-sky-400/30 bg-sky-400/10 text-sky-200',
+  'border-amber-400/30 bg-amber-400/10 text-amber-200',
+  'border-emerald-400/30 bg-emerald-400/10 text-emerald-200',
+  'border-slate-500/40 bg-slate-500/10 text-slate-200',
+] as const;
+
 export default function Traction({ lang }: TractionProps) {
   const t = translations[lang];
 
-  const metricsData = [
-    {
-      title: t.traction.metrics.discussions,
-      desc: t.traction.metrics.discussionsDesc,
-      icon: <GitGraph className="w-6 h-6 text-[#00C16A]" />,
-      background: "bg-[#09110d] border-gradient"
-    },
-    {
-      title: t.traction.metrics.signed,
-      desc: t.traction.metrics.signedDesc,
-      icon: <Flame className="w-6 h-6 text-emerald-400" />,
-      background: "bg-emerald-950/15 border-[#00C16A]/30 shadow-[0_0_15px_rgba(0,193,106,0.1)]"
-    },
-    {
-      title: t.traction.metrics.waitlist,
-      desc: t.traction.metrics.waitlistDesc,
-      icon: <Sparkles className="w-6 h-6 text-[#00C16A]" />,
-      background: "bg-[#09110d]"
-    },
-    {
-      title: t.traction.metrics.mvp,
-      desc: t.traction.metrics.mvpDesc,
-      icon: <Server className="w-6 h-6 text-teal-400" />,
-      background: "bg-[#09110d]"
-    }
-  ];
-
   return (
-    <div id="traction-view" className="relative bg-[#07110C] text-white py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      {/* Background ambient glow */}
-      <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-[#00C16A]/5 rounded-full blur-[100px] pointer-events-none" />
-
-      {/* Headings */}
-      <div className="text-center space-y-4 max-w-3xl mx-auto mb-16">
-        <span className="text-[#00C16A] text-xs font-bold uppercase tracking-widest block">{t.nav.traction} TO DATE</span>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-sans tracking-tight text-white">
-          {t.traction.headline}
-        </h1>
-        <p className="text-gray-400 text-sm sm:text-base">
-          {t.traction.subheadline}
-        </p>
-      </div>
-
-      {/* Traction Metrics Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20" id="traction-metrics-row">
-        {metricsData.map((m, idx) => (
-          <div
-            key={idx}
-            className={`p-6 rounded-2xl border border-white/5 flex flex-col justify-between transition-all hover:border-[#00C16A]/20 duration-300 transform hover:-translate-y-1 ${m.background}`}
-          >
-            <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center mb-5">
-              {m.icon}
+    <div className="bg-[#020617] text-white py-14 md:py-24 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-12 items-end mb-10 md:mb-14"
+        >
+          <div className="space-y-5 text-left">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="text-emerald-300 text-xs font-bold uppercase tracking-widest">{t.traction.eyebrow}</span>
+              <span className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-200">
+                {t.traction.statusBadge}
+              </span>
             </div>
-            <div className="space-y-1.5 text-left">
-              <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white">{m.title}</h3>
-              <p className="text-gray-400 text-xs leading-relaxed">{m.desc}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Testimonials Block */}
-      <div className="bg-[#09110d] border border-white/5 rounded-3xl p-6 md:p-10 shadow-2xl relative overflow-hidden text-left">
-        <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#00C16A]/5 rounded-full blur-3xl pointer-events-none" />
-        
-        <h3 className="text-white text-lg font-bold uppercase tracking-wider mb-8 text-[#00C16A]">
-          {t.traction.testimonials.headline}
-        </h3>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {/* Testimonial 1 */}
-          <div className="space-y-6 flex flex-col justify-between h-full">
-            <div className="space-y-4">
-              <div className="flex text-emerald-400">
-                <MessageSquareQuote className="w-8 h-8 opacity-80" />
-              </div>
-              <p className="text-gray-300 text-xs md:text-sm leading-relaxed italic">
-                "{t.traction.testimonials.quote1}"
-              </p>
-            </div>
-            <div className="flex items-center gap-3 pt-4 border-t border-white/5">
-              {/* Custom CSS Avatar */}
-              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-500 flex items-center justify-center font-bold text-[#07110C] text-xs text-white">
-                AQ
-              </div>
-              <div>
-                <h4 className="text-white text-xs font-bold leading-none">{t.traction.testimonials.author1}</h4>
-                <span className="text-gray-500 text-[10px] block mt-0.5">{t.traction.testimonials.position1}</span>
-              </div>
-            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white max-w-3xl">
+              {t.traction.headline}
+            </h1>
+            <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl">
+              {t.traction.subheadline}
+            </p>
           </div>
 
-          {/* Testimonial 2 */}
-          <div className="space-y-6 flex flex-col justify-between h-full">
-            <div className="space-y-4">
-              <div className="flex text-[#00C16A]">
-                <MessageSquareQuote className="w-8 h-8 opacity-80" />
+          <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 md:p-6 shadow-2xl shadow-emerald-950/20">
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 rounded-xl bg-emerald-400/10 border border-emerald-300/20 flex items-center justify-center text-emerald-300 shrink-0">
+                <AlertCircle className="w-5 h-5" />
               </div>
-              <p className="text-gray-300 text-xs md:text-sm leading-relaxed italic">
-                "{t.traction.testimonials.quote2}"
-              </p>
-            </div>
-            <div className="flex items-center gap-3 pt-4 border-t border-white/5">
-              {/* Custom CSS Avatar */}
-              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-teal-500 to-emerald-400 flex items-center justify-center font-bold text-[#07110C] text-xs text-white">
-                ES
-              </div>
-              <div>
-                <h4 className="text-white text-xs font-bold leading-none">{t.traction.testimonials.author2}</h4>
-                <span className="text-gray-500 text-[10px] block mt-0.5">{t.traction.testimonials.position2}</span>
-              </div>
+              <p className="text-sm leading-relaxed text-slate-200">{t.traction.statusNote}</p>
             </div>
           </div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-5 mb-12 md:mb-16">
+          {metricCards.map((metric, index) => {
+            const Icon = metric.icon;
+            const item = t.traction.metrics[metric.key];
+
+            return (
+              <motion.div
+                key={metric.key}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.06 }}
+                className="min-h-[190px] rounded-2xl border border-white/10 bg-white/[0.045] p-5 md:p-6 shadow-lg shadow-black/20"
+              >
+                <div className="w-11 h-11 rounded-xl bg-emerald-400/10 border border-emerald-300/20 flex items-center justify-center text-emerald-300 mb-5">
+                  <Icon className="w-5 h-5" />
+                </div>
+                <h3 className="text-lg font-bold tracking-tight text-white">{item.title}</h3>
+                <p className="text-slate-300 text-sm leading-relaxed mt-3">{item.desc}</p>
+              </motion.div>
+            );
+          })}
         </div>
 
-      </div>
+        <section className="rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6 md:p-8 mb-12 md:mb-16">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-7 md:mb-9 text-left">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-white">{t.traction.progress.headline}</h2>
+              <p className="text-slate-300 text-sm md:text-base leading-relaxed mt-3 max-w-2xl">{t.traction.progress.subtitle}</p>
+            </div>
+          </div>
 
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
+            {t.traction.progress.items.map((item: { label: string; title: string; desc: string; status: string }, index: number) => {
+              const Icon = progressIcons[index] ?? ClipboardCheck;
+
+              return (
+                <motion.div
+                  key={`${item.label}-${item.title}`}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.07 }}
+                  className="relative rounded-2xl border border-white/10 bg-[#08111f] p-5 text-left"
+                >
+                  <div className="flex items-center justify-between gap-3 mb-5">
+                    <span className="text-xs font-bold text-emerald-300">{item.label}</span>
+                    <div className="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-emerald-300">
+                      <Icon className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <span className={`inline-flex rounded-full border px-2.5 py-1 text-[11px] font-semibold ${statusStyles[index] ?? statusStyles[0]}`}>
+                    {item.status}
+                  </span>
+                  <h3 className="text-base font-bold text-white mt-4">{item.title}</h3>
+                  <p className="text-slate-300 text-xs md:text-sm leading-relaxed mt-2">{item.desc}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-6 md:gap-8 items-start">
+          <div className="text-left">
+            <span className="text-emerald-300 text-xs font-bold uppercase tracking-widest">{t.traction.validation.headline}</span>
+            <p className="text-slate-300 text-sm md:text-base leading-relaxed mt-4">{t.traction.validation.subtitle}</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {t.traction.validation.items.map((item: { title: string; desc: string }, index: number) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.07 }}
+                className="rounded-2xl border border-white/10 bg-white/[0.045] p-5 text-left"
+              >
+                <div className="w-9 h-9 rounded-xl bg-emerald-400/10 border border-emerald-300/20 flex items-center justify-center text-emerald-300 mb-4">
+                  <CheckCircle2 className="w-4 h-4" />
+                </div>
+                <h3 className="font-bold text-white text-sm md:text-base">{item.title}</h3>
+                <p className="text-slate-300 text-xs md:text-sm leading-relaxed mt-2">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        <div className="mt-8 md:mt-10 rounded-2xl border border-amber-300/20 bg-amber-300/10 p-5 md:p-6 text-left">
+          <h3 className="text-amber-100 font-bold text-base md:text-lg">{t.traction.disclaimer.title}</h3>
+          <p className="text-amber-50/80 text-sm leading-relaxed mt-2">{t.traction.disclaimer.desc}</p>
+        </div>
+      </div>
     </div>
   );
 }

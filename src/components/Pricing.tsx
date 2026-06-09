@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Check, Info, BadgeAlert, Sparkles, Send } from 'lucide-react';
+import { Building2, Check, Info, Layers, Network, ShieldCheck, Sparkles } from 'lucide-react';
 import { Language } from '../types';
 import { translations } from '../translations';
 
@@ -9,152 +8,172 @@ interface PricingProps {
   onRequestDemo: () => void;
 }
 
+const planIds = ['pilotPrep', 'clinicPilot', 'enterprise'] as const;
+const planIcons = [Layers, Building2, Network] as const;
+const factorIcons = [Building2, Layers, Network, ShieldCheck] as const;
+
+type PlanId = (typeof planIds)[number];
+type Plan = {
+  name: string;
+  price: string;
+  desc: string;
+  features: string[];
+};
+
+type Factor = {
+  title: string;
+  desc: string;
+};
+
 export default function Pricing({ lang, onRequestDemo }: PricingProps) {
   const t = translations[lang];
-  const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'annually'>('annually');
-
-  const plans = [
-    {
-      id: 'starter',
-      name: t.pricing.starter.name,
-      priceMonthly: "$49",
-      priceAnnually: "$39",
-      desc: t.pricing.starter.desc,
-      features: t.pricing.starter.features,
-      isPopular: false,
-      glow: "border-white/5 bg-[#0D1527]"
-    },
-    {
-      id: 'growth',
-      name: t.pricing.growth.name,
-      priceMonthly: "$149",
-      priceAnnually: "$119",
-      desc: t.pricing.growth.desc,
-      features: t.pricing.growth.features,
-      isPopular: true,
-      glow: "border-sky-500/30 bg-[#0A1224] shadow-[0_0_30px_rgba(14,165,233,0.1)]"
-    },
-    {
-      id: 'enterprise',
-      name: t.pricing.enterprise.name,
-      priceMonthly: t.pricing.enterprise.price,
-      priceAnnually: t.pricing.enterprise.price,
-      desc: t.pricing.enterprise.desc,
-      features: t.pricing.enterprise.features,
-      isPopular: false,
-      glow: "border-white/5 bg-[#0D1527]"
-    }
-  ];
+  const plans = t.pricing.plans as Record<PlanId, Plan>;
+  const factors = t.pricing.factors.items as Factor[];
 
   return (
-    <div id="pricing-view" className="relative bg-[#050B14] text-white py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      {/* Background ambient glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 bg-sky-500/5 rounded-full blur-[120px] pointer-events-none" />
+    <div className="bg-[#020617] text-white py-14 md:py-24 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center max-w-4xl mx-auto space-y-5 mb-10 md:mb-14"
+        >
+          <div className="inline-flex flex-wrap items-center justify-center gap-3">
+            <span className="text-sky-300 text-xs font-bold uppercase tracking-widest inline-flex items-center gap-2">
+              <span className="w-6 h-px bg-sky-300" />
+              <span>{t.pricing.eyebrow}</span>
+              <span className="w-6 h-px bg-sky-300" />
+            </span>
+            <span className="rounded-full border border-sky-300/30 bg-sky-400/10 px-3 py-1 text-xs font-semibold text-sky-100">
+              {t.pricing.statusBadge}
+            </span>
+          </div>
 
-      {/* Headings */}
-      <div className="text-center space-y-4 max-w-3xl mx-auto mb-12">
-        <span className="text-sky-400 text-xs font-bold uppercase tracking-widest block">{t.nav.pricing} MANAGEMENT</span>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-sans tracking-tight text-white animate-fade-in">
-          {t.pricing.headline}
-        </h1>
-        <p className="text-gray-400 text-sm sm:text-base">
-          {t.pricing.subheadline}
-        </p>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
+            {t.pricing.headline}
+          </h1>
+          <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed">
+            {t.pricing.subheadline}
+          </p>
+        </motion.div>
 
-        {/* Dynamic Billing Toggle element */}
-        <div className="pt-6 flex justify-center items-center gap-3">
-          <span className={`text-xs font-semibold ${billingPeriod === 'monthly' ? 'text-white' : 'text-gray-500'}`}>
-            {t.pricing.billingToggle.monthly}
-          </span>
-          <button
-            id="billing-period-toggle"
-            onClick={() => setBillingPeriod(billingPeriod === 'monthly' ? 'annually' : 'monthly')}
-            className="w-12 h-6.5 rounded-full bg-white/10 p-[2.5px] relative transition-colors focus:outline-none cursor-pointer"
-            aria-label="Toggle billing subscription period"
-          >
-            <motion.div
-              layout
-              className="w-5.5 h-5.5 rounded-full bg-sky-500"
-              animate={{ x: billingPeriod === 'annually' ? 22 : 0 }}
-              transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-            />
-          </button>
-          <span className={`text-xs font-semibold ${billingPeriod === 'annually' ? 'text-sky-400' : 'text-gray-500'} flex items-center gap-1.5`}>
-            <span>{t.pricing.billingToggle.annually}</span>
-            <span className="bg-sky-500/10 text-sky-400 text-[10px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider">Save 20%</span>
-          </span>
+        <div className="rounded-2xl border border-sky-300/20 bg-sky-400/10 p-5 md:p-6 mb-10 md:mb-14">
+          <div className="flex flex-col sm:flex-row items-start gap-4 text-left">
+            <div className="w-11 h-11 rounded-xl bg-sky-300/10 border border-sky-300/20 flex items-center justify-center text-sky-200 shrink-0">
+              <Info className="w-5 h-5" />
+            </div>
+            <div>
+              <h2 className="text-sky-50 text-lg font-bold tracking-tight">{t.pricing.notice.title}</h2>
+              <p className="text-slate-300 text-sm leading-relaxed mt-2">{t.pricing.notice.desc}</p>
+            </div>
+          </div>
         </div>
-      </div>
 
-      {/* Pricing cards grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch pt-6" id="pricing-plans-grid">
-        {plans.map((p) => {
-          const price = billingPeriod === 'annually' ? p.priceAnnually : p.priceMonthly;
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 items-stretch">
+          {planIds.map((id, index) => {
+            const plan = plans[id];
+            const Icon = planIcons[index];
+            const isRecommended = id === 'clinicPilot';
 
-          return (
-            <div
-              key={p.id}
-              className={`p-6 md:p-8 rounded-2xl border text-left flex flex-col justify-between relative overflow-hidden transition-all hover:border-sky-500/20 duration-300 ${p.glow}`}
-            >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-sky-500/5 rounded-full blur-2xl pointer-events-none" />
+            return (
+              <motion.div
+                key={id}
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.06 }}
+                className={`relative rounded-2xl border p-6 md:p-7 text-left flex flex-col min-h-[520px] ${
+                  isRecommended
+                    ? 'border-sky-300/40 bg-sky-400/[0.09] shadow-2xl shadow-sky-950/30'
+                    : 'border-white/10 bg-white/[0.045] shadow-lg shadow-black/20'
+                }`}
+              >
+                {isRecommended && (
+                  <div className="absolute top-4 right-4 bg-sky-300/15 text-sky-100 text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full border border-sky-300/30 tracking-wider flex items-center gap-1.5">
+                    <Sparkles className="w-3 h-3" />
+                    <span>{t.pricing.recommended}</span>
+                  </div>
+                )}
 
-              {p.isPopular && (
-                <div className="absolute top-4 right-4 bg-sky-500/15 text-sky-400 text-[9px] font-extrabold uppercase px-2.5 py-1 rounded-full border border-sky-500/20 tracking-wider flex items-center gap-1">
-                  <Sparkles className="w-3 h-3" />
-                  <span>{t.common.popular}</span>
+                <div className="w-12 h-12 rounded-xl bg-sky-300/10 border border-sky-300/20 flex items-center justify-center text-sky-200 mb-6">
+                  <Icon className="w-5 h-5" />
                 </div>
-              )}
 
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-lg font-bold tracking-tight text-white mb-1.5">{p.name}</h3>
-                  <p className="text-gray-400 text-xs min-h-[32px]">{p.desc}</p>
-                </div>
+                <div className="space-y-4">
+                  <div className="pr-20 md:pr-0 lg:pr-16">
+                    <h3 className="text-xl font-bold tracking-tight text-white">{plan.name}</h3>
+                    <p className="text-slate-300 text-sm leading-relaxed mt-2">{plan.desc}</p>
+                  </div>
 
-                <div className="flex items-baseline gap-2">
-                  <span className="text-4xl md:text-5xl font-extrabold tracking-tight text-white font-mono">
-                    {price}
-                  </span>
-                  {p.id !== 'enterprise' && (
-                    <span className="text-gray-500 text-xs font-semibold">
-                      {t.common.perMonth}
+                  <div className="pt-2">
+                    <span className="block text-2xl md:text-3xl font-extrabold tracking-tight text-sky-100">
+                      {plan.price}
                     </span>
-                  )}
+                  </div>
                 </div>
 
-                <div className="h-[1px] bg-white/5 w-full" />
+                <div className="h-px bg-white/10 w-full my-6" />
 
-                {/* Features checklists */}
                 <div className="space-y-3.5">
-                  {p.features.map((feat: string, fIdx: number) => (
-                    <div key={fIdx} className="flex items-start gap-2.5 text-xs text-gray-300 leading-relaxed">
-                      <Check className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
-                      <span>{feat}</span>
+                  {plan.features.map((feature) => (
+                    <div key={feature} className="flex items-start gap-3 text-sm text-slate-300 leading-relaxed">
+                      <Check className="w-4 h-4 text-sky-300 shrink-0 mt-0.5" />
+                      <span>{feature}</span>
                     </div>
                   ))}
                 </div>
-              </div>
 
-              {/* Direct Demo callback action */}
-              <div className="pt-8 mt-auto">
-                <button
-                  id={`pricing-plan-btn-${p.id}`}
-                  onClick={onRequestDemo}
-                  className={`w-full py-3 rounded-lg font-semibold text-xs tracking-tight transition-all text-center cursor-pointer flex items-center justify-center gap-2 ${
-                    p.isPopular
-                      ? 'bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold shadow-[0_0_20px_rgba(14,165,233,0.2)]'
-                      : 'bg-white/5 hover:bg-white/10 border border-white/10 text-white'
-                  }`}
+                <div className="pt-8 mt-auto">
+                  <button
+                    onClick={onRequestDemo}
+                    aria-label={t.pricing.cta}
+                    className={`w-full py-3 rounded-lg font-semibold text-sm tracking-tight transition-all text-center cursor-pointer flex items-center justify-center gap-2 ${
+                      isRecommended
+                        ? 'bg-sky-300 hover:bg-sky-200 text-[#020617] shadow-sm'
+                        : 'bg-white/[0.05] hover:bg-white/[0.08] border border-white/10 text-white'
+                    }`}
+                  >
+                    <span>{t.pricing.cta}</span>
+                  </button>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        <section className="mt-12 md:mt-16">
+          <div className="text-left mb-6 md:mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-white">{t.pricing.factors.title}</h2>
+            <p className="text-slate-300 text-sm md:text-base leading-relaxed mt-3 max-w-3xl">{t.pricing.factors.subtitle}</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+            {factors.map((factor, index) => {
+              const Icon = factorIcons[index] ?? Layers;
+
+              return (
+                <motion.div
+                  key={factor.title}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                  className="rounded-2xl border border-white/10 bg-white/[0.045] p-5 text-left"
                 >
-                  <span>{t.common.getStarted}</span>
-                </button>
-              </div>
+                  <div className="w-10 h-10 rounded-xl bg-sky-300/10 border border-sky-300/20 flex items-center justify-center text-sky-200 mb-4">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="font-bold text-white text-base">{factor.title}</h3>
+                  <p className="text-slate-300 text-sm leading-relaxed mt-2">{factor.desc}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </section>
 
-            </div>
-          );
-        })}
+        <div className="mt-8 md:mt-10 rounded-2xl border border-amber-300/20 bg-amber-300/10 p-5 md:p-6 text-left">
+          <h3 className="text-amber-100 font-bold text-base md:text-lg">{t.pricing.disclaimer.title}</h3>
+          <p className="text-amber-50/80 text-sm leading-relaxed mt-2">{t.pricing.disclaimer.desc}</p>
+        </div>
       </div>
-
     </div>
   );
 }
