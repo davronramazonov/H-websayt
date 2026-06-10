@@ -43,7 +43,7 @@ export default function RequestDemoModal({ isOpen, onClose, lang }: RequestDemoM
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 flex items-start sm:items-center justify-center overflow-y-auto overscroll-contain p-3 sm:p-4">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -56,9 +56,9 @@ export default function RequestDemoModal({ isOpen, onClose, lang }: RequestDemoM
             animate={{ scale: 1, y: 0, opacity: 1 }}
             exit={{ scale: 0.95, y: 15, opacity: 0 }}
             transition={{ type: 'spring', duration: 0.5 }}
-            className="relative w-full max-w-xl bg-white border border-[#E2E8F0] rounded-2xl p-6 md:p-8 shadow-xl overflow-hidden"
+            className="relative my-auto w-full max-w-xl max-h-[calc(100dvh-1.5rem)] sm:max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-contain bg-white border border-[#E2E8F0] rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl"
           >
-            <div className="flex justify-between items-start mb-6">
+            <div className="flex justify-between items-start gap-4 mb-5 sm:mb-6">
               <div>
                 <BrandLogo size="sm" showText={false} className="mb-3" />
                 <h3 className="text-xl md:text-2xl font-bold tracking-tight text-[#0F172A]">
@@ -66,7 +66,7 @@ export default function RequestDemoModal({ isOpen, onClose, lang }: RequestDemoM
                 </h3>
                 <p className="text-[#475569] text-xs md:text-sm mt-1">{t.demoModal.subtitle}</p>
               </div>
-              <button onClick={onClose} className="text-[#475569] hover:text-[#0F172A] p-1 rounded-full hover:bg-[#F8FAFC] transition-colors cursor-pointer" aria-label="Close dialog">
+              <button onClick={onClose} className="sticky top-0 z-10 shrink-0 text-[#475569] hover:text-[#0F172A] p-1.5 rounded-full bg-white hover:bg-[#F8FAFC] transition-colors cursor-pointer" aria-label="Close dialog">
                 <X className="w-5 h-5" />
               </button>
             </div>
