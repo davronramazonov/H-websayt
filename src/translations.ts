@@ -696,7 +696,7 @@ const uz = {
     role: "Rolingiz",
     country: "Davlat",
     message: "Qisqa izoh",
-    submitSuccess: "So'rovingiz qabul qilindi. H+ jamoasi imkon qadar tez bog'lanadi.",
+    submitSuccess: "Email dasturingizda tayyor murojaat ochildi. Uni yuborishni tasdiqlang.",
     submitError: "Iltimos, majburiy maydonlarni to'ldiring."
   },
   footer: {
@@ -1158,7 +1158,7 @@ const en = {
     role: "Your Role",
     country: "Country",
     message: "Short note",
-    submitSuccess: "Your request was received. The H+ team will follow up as soon as possible.",
+    submitSuccess: "A prepared message was opened in your email app. Please confirm sending it.",
     submitError: "Please complete all required fields."
   },
   footer: {

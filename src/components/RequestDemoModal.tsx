@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { X, CheckCircle, Send, ArrowRight } from 'lucide-react';
 import { Language, DemoRequest } from '../types';
 import { translations } from '../translations';
+import { contact } from '../config/contact';
 import BrandLogo from './BrandLogo';
 
 interface RequestDemoModalProps {
@@ -28,10 +29,24 @@ export default function RequestDemoModal({ isOpen, onClose, lang }: RequestDemoM
     }
     setError(null);
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 1200);
+
+    const subject = lang === 'uz'
+      ? `H+ demo so'rovi - ${formData.organization}`
+      : `H+ demo request - ${formData.organization}`;
+    const body = [
+      `${t.demoModal.fullName}: ${formData.fullName}`,
+      `${t.demoModal.email}: ${formData.email}`,
+      `${t.demoModal.orgName}: ${formData.organization}`,
+      `${t.demoModal.role}: ${formData.role}`,
+      `${t.demoModal.country}: ${formData.country}`,
+      '',
+      `${t.demoModal.message}:`,
+      formData.message || '-',
+    ].join('\n');
+
+    window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setIsSubmitting(false);
+    setIsSubmitted(true);
   };
 
   const handleReset = () => {

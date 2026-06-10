@@ -1,6 +1,7 @@
-import { Mail, Phone, MapPin, Linkedin, MessageCircle, Github } from 'lucide-react';
+import { Mail, MapPin, Github } from 'lucide-react';
 import { Language, PageId } from '../types';
 import { translations } from '../translations';
+import { contact } from '../config/contact';
 import BrandLogo from './BrandLogo';
 import type { LegalDocument } from './LegalModal';
 
@@ -33,19 +34,9 @@ export default function Footer({ lang, setActivePage, onRequestDemo, onOpenLegal
             {t.footer.desc}
           </p>
           <div className="flex items-center gap-3 pt-2">
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer"
+            <a href={contact.github} target="_blank" rel="noreferrer"
               className="w-8 h-8 rounded-full bg-white border border-[#E2E8F0] flex items-center justify-center hover:bg-[#EFF6FF] text-[#475569] hover:text-[#2563EB] transition-colors"
-              aria-label="LinkedIn Profile">
-              <Linkedin className="w-4 h-4" />
-            </a>
-            <a href="https://telegram.org" target="_blank" rel="noreferrer"
-              className="w-8 h-8 rounded-full bg-white border border-[#E2E8F0] flex items-center justify-center hover:bg-[#EFF6FF] text-[#475569] hover:text-[#2563EB] transition-colors"
-              aria-label="Telegram Community">
-              <MessageCircle className="w-4 h-4" />
-            </a>
-            <a href="https://github.com" target="_blank" rel="noreferrer"
-              className="w-8 h-8 rounded-full bg-white border border-[#E2E8F0] flex items-center justify-center hover:bg-[#EFF6FF] text-[#475569] hover:text-[#2563EB] transition-colors"
-              aria-label="GitHub Repository">
+              aria-label="H+ GitHub Repository">
               <Github className="w-4 h-4" />
             </a>
           </div>
@@ -81,11 +72,7 @@ export default function Footer({ lang, setActivePage, onRequestDemo, onOpenLegal
             </li>
             <li className="flex items-center gap-2.5">
               <Mail className="w-4 h-4 text-[#2563EB] shrink-0" />
-              <a href="mailto:info@hplus.uz" className="hover:text-[#0F172A] transition-colors">info@hplus.uz</a>
-            </li>
-            <li className="flex items-center gap-2.5">
-              <Phone className="w-4 h-4 text-[#2563EB] shrink-0" />
-              <a href="tel:+998712000000" className="hover:text-[#0F172A] transition-colors">+998 (71) 200-00-00</a>
+              <a href={`mailto:${contact.email}`} className="hover:text-[#0F172A] transition-colors">{contact.email}</a>
             </li>
           </ul>
         </div>
