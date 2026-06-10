@@ -641,7 +641,7 @@ const uz = {
     headline: "H+ - Markaziy Osiyo tibbiyoti uchun qurilayotgan yangi avlod HealthTech loyihasi",
     subheadline: "Biz xususiy klinikalar, shifokorlar va bemorlar uchun yagona tibbiy operatsion tizim yaratmoqdamiz. H+ hali MVP emas, lekin konsepsiya, mahsulot arxitekturasi, bozor tahlili va pilot yo'nalishi shakllangan.",
     mission: { title: "Missiyamiz", desc: "Markaziy Osiyoda klinika, shifokor va bemor o'rtasidagi tarqoq jarayonlarni yagona, tushunarli va xavfsiz raqamli ekotizimga birlashtirish." },
-    vision: { title: "Vizyonimiz", desc: "HealthTech yo'nalishida mintaqa sharoitiga mos, oddiy va ishonchli tibbiy infratuzilma yaratish hamda uzoq muddatda unicorn darajasidagi kompaniyaga aylanish." },
+    vision: { title: "Kelajakdagi maqsadimiz", desc: "HealthTech yo'nalishida mintaqa sharoitiga mos, oddiy va ishonchli tibbiy infratuzilma yaratish hamda uzoq muddatda unicorn darajasidagi kompaniyaga aylanish." },
     team: {
       eyebrow: "Asosiy jamoa",
       title: "H+ ni qurayotgan jamoa",
