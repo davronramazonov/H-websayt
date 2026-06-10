@@ -130,9 +130,9 @@ const uz = {
         benefits: ["Bemor tarixi yo'qolmaydi", "Tahlil va hujjatlar biriktiriladi", "Qog'ozbozlik kamayadi"]
       },
       ai: {
-        title: "Analitika & AI",
-        desc: "Klinika yuklamasi, daromad, bemorlarning qayta kelishi va operatsion samaradorlikni ko'rsatadigan aqlli analitik qatlam.",
-        benefits: ["Daromad va retention tahlili", "Yuklama prognozi", "Rahbar uchun tushunarli hisobotlar"]
+        title: "Boshqaruv analitikasi va AI",
+        desc: "Klinika rahbari uchun qabul yuklamasi, daromad va bemorlarning qayta kelishini tushunarli ko'rsatadigan rejalashtirilgan tahlil vositalari.",
+        benefits: ["Daromad va qayta tashriflar tahlili", "Qabul yuklamasini oldindan baholash", "Rahbar uchun sodda hisobotlar"]
       },
       app: {
         title: "Bemor ilovasi",
@@ -140,9 +140,9 @@ const uz = {
         benefits: ["Bir necha bosishda bron", "QR/ID orqali tez identifikatsiya", "Natijalar va eslatmalar telefonda"]
       },
       integrations: {
-        title: "Integratsiyalar",
-        desc: "Laboratoriya, dorixona, sug'urta va kelajakdagi davlat e-sog'liq tizimlari bilan ulanishga tayyor API yondashuvi.",
-        benefits: ["LIS va laboratoriya almashinuvi", "Dorixona va ombor oqimi", "Sug'urta jarayonlari uchun tayyor struktura"]
+        title: "Tashqi tizimlarni ulash",
+        desc: "Laboratoriya, dorixona, sug'urta va kelajakdagi davlat e-sog'liq tizimlari bilan xavfsiz ma'lumot almashish imkoniyati MVPdan keyingi bosqichlar uchun rejalashtirilgan.",
+        benefits: ["Laboratoriya natijalarini qabul qilish", "Dorixona va ombor ma'lumotlarini ulash", "Sug'urta jarayonlariga tayyorlanish"]
       }
     },
     dashboardMockup: {
@@ -180,24 +180,24 @@ const uz = {
       vitalValues: "72 bpm - 36.6 C",
       diagnoseCode: "Oxirgi tashrif yozuvi",
       chronicCondition: "Tashrif tarixi",
-      predictiveEngine: "Rahbarlar uchun AI yordamchi analitika",
-      mondayForecast: "AI moduli shifokor qarorini almashtirmaydi; u klinika yuklamasi, daromad va operatsion samaradorlikni tushunarli ko'rsatadi.",
-      diagnosisMatch: "Yuklama prognozi",
-      insightVal: "Operatsion insight",
-      insightDesc: "Klinik tashxis claimi emas",
+      predictiveEngine: "Rahbar uchun yordamchi tahlil",
+      mondayForecast: "Rejalashtirilgan AI vositasi tibbiy tashxis qo'ymaydi va shifokor qarorini almashtirmaydi. U klinika faoliyati haqidagi ko'rsatkichlarni tushunarli shaklda jamlaydi.",
+      diagnosisMatch: "Qabul yuklamasi",
+      insightVal: "Oldindan baholash",
+      insightDesc: "Tibbiy tashxis emas",
       timeSaved: "Rahbar hisoboti",
       hrsPerDay: "Tushunarli panel",
       perPhysician: "qaror qabul qilish uchun",
       today: "Bugun",
       todayAppointment: "Bugungi qabul",
       appAppointment: "15:30 - Dr. S. Kamalova",
-      labName: "Mustaqil lab",
+      labName: "Laboratoriya va dorixona",
       pharmacyName: "Dorixona oqimi",
-      insuranceName: "Sug'urta jarayoni",
-      coreApi: "H+ Core API",
-      syncing: "Rejada",
-      realtimeClaim: "API struktura",
-      apiDesc: "H+ laboratoriya, dorixona va sug'urta workflowlarini kelajakdagi e-sog'liq integratsiyalariga tayyor API yondashuvi bilan bog'lashni maqsad qiladi.",
+      insuranceName: "Sug'urta va e-sog'liq",
+      coreApi: "H+ ulanish markazi",
+      syncing: "Ulanish rejasida",
+      realtimeClaim: "Ulanish rejasida",
+      apiDesc: "Bu integratsiyalar hozircha ishlaydigan mahsulotga ulanmagan. Texnik talablar MVP va pilot sinovlari davomida hamkorlar bilan birga aniqlanadi.",
       osVersion: "H+ OS - MVP"
     },
     workflow: {
