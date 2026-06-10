@@ -13,10 +13,11 @@ export default function Home({ lang, setActivePage, onRequestDemo }: HomeProps) 
   const t = translations[lang];
 
   const targetCountries = [
-    { name: t.market.countriesData.uzbekistan.name, icon: <Building2 className="w-3.5 h-3.5 text-[#2563EB]" />, status: t.common.primaryMarket },
-    { name: t.market.countriesData.kazakhstan.name, icon: <Globe className="w-3.5 h-3.5 text-[#2563EB]" />, status: t.common.secondaryMarkets },
-    { name: t.market.countriesData.kyrgyzstan.name, icon: <Globe className="w-3.5 h-3.5 text-[#2563EB]" />, status: t.common.secondaryMarkets },
-    { name: t.market.countriesData.tajikistan.name, icon: <MapPin className="w-3.5 h-3.5 text-[#2563EB]" />, status: t.common.secondaryMarkets }
+    { name: t.market.countriesData.uzbekistan.name, icon: <Building2 className="w-3.5 h-3.5 text-[#2563EB]" />, status: t.common.openMarketOpportunity },
+    { name: t.market.countriesData.kazakhstan.name, icon: <Globe className="w-3.5 h-3.5 text-[#2563EB]" />, status: t.common.openMarketOpportunity },
+    { name: t.market.countriesData.kyrgyzstan.name, icon: <Globe className="w-3.5 h-3.5 text-[#2563EB]" />, status: t.common.openMarketOpportunity },
+    { name: t.market.countriesData.tajikistan.name, icon: <MapPin className="w-3.5 h-3.5 text-[#2563EB]" />, status: t.common.openMarketOpportunity },
+    { name: t.market.countriesData.turkmenistan.name, icon: <MapPin className="w-3.5 h-3.5 text-[#2563EB]" />, status: t.common.openMarketOpportunity }
   ];
 
   const features = [
