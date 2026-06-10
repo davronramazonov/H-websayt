@@ -1,7 +1,8 @@
 import { motion } from 'motion/react';
-import { Calendar, Clock, Brain, FileText, Smartphone, Network, MapPin, ArrowRight, ShieldCheck, Globe, Building2 } from 'lucide-react';
+import { Calendar, Clock, Brain, FileText, Smartphone, Network, MapPin, ArrowRight, Globe, Building2 } from 'lucide-react';
 import { Language, PageId } from '../types';
 import { translations } from '../translations';
+import productOverviewImage from '../../assets/hplus-product-overview.png';
 
 interface HomeProps {
   lang: Language;
@@ -113,9 +114,17 @@ export default function Home({ lang, setActivePage, onRequestDemo }: HomeProps) 
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, type: 'spring', duration: 0.8 }}
-              className="relative w-full max-w-lg aspect-square lg:aspect-auto lg:h-[480px] rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] p-6 flex items-center justify-center overflow-hidden shadow-sm"
+              className="relative w-full max-w-2xl aspect-[4/3] rounded-xl bg-white border border-[#E2E8F0] overflow-hidden shadow-[0_20px_55px_rgba(15,23,42,0.12)]"
             >
+              <img
+                src={productOverviewImage}
+                alt="H+ klinika boshqaruv paneli va bemor mobil ilovasi konsepti"
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="eager"
+                fetchPriority="high"
+              />
 
+              <div className="hidden" aria-hidden="true">
               <div className="absolute inset-x-6 top-8 h-[260px] bg-white border border-[#E2E8F0] rounded-xl shadow-md p-4 overflow-hidden transform -rotate-2 select-none">
                 <div className="flex items-center justify-between pb-3 border-b border-[#E2E8F0] text-[10px] text-[#475569]">
                   <div className="flex items-center gap-2">
@@ -199,12 +208,6 @@ export default function Home({ lang, setActivePage, onRequestDemo }: HomeProps) 
                 </div>
               </div>
 
-              <div className="absolute left-8 bottom-8 bg-white border border-[#E2E8F0] rounded-lg p-2.5 shadow-md flex items-center gap-2 transform -rotate-3">
-                <ShieldCheck className="w-4 h-4 text-[#2563EB]" />
-                <div className="flex flex-col text-[8px]">
-                  <span className="font-bold text-[#0F172A]">{t.home.mockup.secureRecord}</span>
-                  <span className="text-[#475569] font-mono">{t.home.mockup.ehrStandard}</span>
-                </div>
               </div>
             </motion.div>
           </div>
