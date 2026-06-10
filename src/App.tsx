@@ -11,12 +11,14 @@ import Pricing from './components/Pricing';
 import Company from './components/Company';
 import Investors from './components/Investors';
 import RequestDemoModal from './components/RequestDemoModal';
+import LegalModal, { type LegalDocument } from './components/LegalModal';
 import { Language, PageId } from './types';
 
 export default function App() {
   const [lang, setLang] = useState<Language>('uz');
   const [activePage, setActivePage] = useState<PageId>('home');
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+  const [legalDocument, setLegalDocument] = useState<LegalDocument | null>(null);
 
   return (
     <div className="min-h-screen bg-white font-sans text-[#0F172A] selection:bg-[#2563EB]/20 selection:text-[#0F172A] flex flex-col">
@@ -48,8 +50,9 @@ export default function App() {
           </motion.div>
         </AnimatePresence>
       </main>
-      <Footer lang={lang} setActivePage={setActivePage} onRequestDemo={() => setIsDemoModalOpen(true)} />
+      <Footer lang={lang} setActivePage={setActivePage} onRequestDemo={() => setIsDemoModalOpen(true)} onOpenLegal={setLegalDocument} />
       <RequestDemoModal isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} lang={lang} />
+      <LegalModal document={legalDocument} onClose={() => setLegalDocument(null)} lang={lang} />
     </div>
   );
 }

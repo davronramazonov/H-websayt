@@ -2,14 +2,16 @@ import { Mail, Phone, MapPin, Linkedin, MessageCircle, Github } from 'lucide-rea
 import { Language, PageId } from '../types';
 import { translations } from '../translations';
 import BrandLogo from './BrandLogo';
+import type { LegalDocument } from './LegalModal';
 
 interface FooterProps {
   lang: Language;
   setActivePage: (page: PageId) => void;
   onRequestDemo: () => void;
+  onOpenLegal: (document: LegalDocument) => void;
 }
 
-export default function Footer({ lang, setActivePage, onRequestDemo }: FooterProps) {
+export default function Footer({ lang, setActivePage, onRequestDemo, onOpenLegal }: FooterProps) {
   const t = translations[lang];
 
   const handleNavClick = (id: PageId) => {
@@ -63,8 +65,8 @@ export default function Footer({ lang, setActivePage, onRequestDemo }: FooterPro
         <div className="space-y-3">
           <h4 className="text-[#0F172A] font-semibold text-xs tracking-wider uppercase">{t.footer.legal}</h4>
           <ul className="space-y-2 text-xs">
-            <li><span className="hover:text-[#0F172A] cursor-pointer transition-colors block">{t.footer.privacy}</span></li>
-            <li><span className="hover:text-[#0F172A] cursor-pointer transition-colors block">{t.footer.terms}</span></li>
+            <li><button type="button" onClick={() => onOpenLegal('privacy')} className="hover:text-[#2563EB] cursor-pointer transition-colors text-left">{t.footer.privacy}</button></li>
+            <li><button type="button" onClick={() => onOpenLegal('terms')} className="hover:text-[#2563EB] cursor-pointer transition-colors text-left">{t.footer.terms}</button></li>
             <li><button onClick={() => handleNavClick('pricing')} className="hover:text-[#2563EB] transition-colors text-left cursor-pointer">{t.nav.pricing}</button></li>
             <li><button onClick={onRequestDemo} className="text-[#2563EB] hover:underline transition-colors text-left cursor-pointer font-medium">{t.common.demoBtn}</button></li>
           </ul>

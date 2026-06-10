@@ -707,7 +707,31 @@ const uz = {
     contact: "Aloqa",
     privacy: "Maxfiylik",
     terms: "Shartlar",
-    address: "Tashkent, Uzbekistan."
+    address: "Tashkent, Uzbekistan.",
+    legalDocuments: {
+      privacy: {
+        title: "Maxfiylik siyosati",
+        updated: "Yangilangan: 10-iyun, 2026",
+        intro: "H+ hozir pre-MVP bosqichida. Ushbu siyosat sayt orqali yuboriladigan aloqa ma'lumotlari qanday ishlatilishini tushuntiradi.",
+        sections: [
+          { title: "Qanday ma'lumotlar olinadi", body: "Demo so'rovi formasida ism, email, tashkilot, rol, davlat va ixtiyoriy izoh olinishi mumkin. Sayt hozircha klinik yoki tibbiy ma'lumotlarni qabul qilish uchun mo'ljallanmagan." },
+          { title: "Ma'lumotlardan foydalanish", body: "Ma'lumotlar faqat so'rovga javob berish, potensial pilot yoki hamkorlik suhbatini tashkil qilish va mahsulotga qiziqishni tushunish uchun ishlatiladi." },
+          { title: "Ulashish va saqlash", body: "H+ aloqa ma'lumotlarini sotmaydi. Zarur texnik xizmat ko'rsatuvchilardan tashqari, ma'lumotlar uchinchi tomonlarga ruxsatsiz berilmaydi. Saqlash muddati mahsulot va huquqiy talablar shakllangani sari aniqlashtiriladi." },
+          { title: "Sizning so'rovingiz", body: "Ma'lumotlaringizni ko'rish, tuzatish yoki o'chirish bo'yicha info@hplus.uz manziliga murojaat qilishingiz mumkin." }
+        ]
+      },
+      terms: {
+        title: "Foydalanish shartlari",
+        updated: "Yangilangan: 10-iyun, 2026",
+        intro: "Ushbu sayt H+ loyihasi, rejalashtirilayotgan mahsulot va bozor tadqiqotlari haqida ma'lumot beruvchi pre-MVP taqdimotdir.",
+        sections: [
+          { title: "Mahsulot holati", body: "H+ hali tayyor MVP, ommaviy xizmat yoki tibbiy axborot tizimi emas. Saytdagi funksiyalar rejalashtirilayotgan mahsulot yo'nalishini ko'rsatadi." },
+          { title: "Tibbiy va investitsion maslahat emas", body: "Saytdagi materiallar tibbiy, huquqiy yoki moliyaviy maslahat hisoblanmaydi. Investor sahifasi ommaviy investitsiya taklifi emas." },
+          { title: "Bozor ma'lumotlari", body: "Bozor raqamlari ochiq manbalar va ehtiyotkor ichki baholarga asoslanadi. Turli davlatlardagi hisoblash usullari sababli ular yagona rasmiy dataset sifatida talqin qilinmasligi kerak." },
+          { title: "Intellektual mulk va aloqa", body: "H+ nomi, dizayn materiallari va sayt kontenti tegishli huquqlar bilan himoyalanishi mumkin. Savollar uchun info@hplus.uz manziliga murojaat qiling." }
+        ]
+      }
+    }
   }
 };
 
@@ -1145,7 +1169,31 @@ const en = {
     contact: "Contact",
     privacy: "Privacy",
     terms: "Terms",
-    address: "Tashkent, Uzbekistan."
+    address: "Tashkent, Uzbekistan.",
+    legalDocuments: {
+      privacy: {
+        title: "Privacy Policy",
+        updated: "Updated: June 10, 2026",
+        intro: "H+ is currently pre-MVP. This policy explains how contact information submitted through the website may be used.",
+        sections: [
+          { title: "Information collected", body: "The demo request form may collect your name, email, organization, role, country, and an optional note. The website is not intended to collect clinical or medical records." },
+          { title: "How information is used", body: "Information is used to respond to requests, arrange potential pilot or partnership conversations, and understand interest in the planned product." },
+          { title: "Sharing and retention", body: "H+ does not sell contact information. Data is not shared without authorization except with necessary technical service providers. Retention practices will be refined as the product and legal framework develop." },
+          { title: "Your request", body: "You may request access, correction, or deletion of your information by contacting info@hplus.uz." }
+        ]
+      },
+      terms: {
+        title: "Terms of Use",
+        updated: "Updated: June 10, 2026",
+        intro: "This website is a pre-MVP presentation of the H+ project, its planned product direction, and market research.",
+        sections: [
+          { title: "Product status", body: "H+ is not yet a finished MVP, publicly available service, or medical information system. Website features describe planned product direction." },
+          { title: "No medical or investment advice", body: "Website materials are not medical, legal, or financial advice. The investor page is not a public investment offering." },
+          { title: "Market information", body: "Market figures are based on public sources and conservative internal estimates. Differences in country reporting mean they should not be treated as one unified official dataset." },
+          { title: "Intellectual property and contact", body: "The H+ name, design materials, and website content may be protected by applicable rights. Contact info@hplus.uz with questions." }
+        ]
+      }
+    }
   }
 };
 
@@ -1551,6 +1599,40 @@ const ru = {
     disclaimer: {
       title: "Важное примечание",
       desc: "Тарифы на этой странице не являются финальными коммерческими ценами. H+ находится на стадии pre-MVP, а pricing-модель будет уточнена после MVP и результатов пилота."
+    }
+  },
+  footer: {
+    desc: "Pre-MVP HealthTech-инфраструктура для клиник, врачей и пациентов Центральной Азии.",
+    rights: "Все права защищены.",
+    company: "Компания",
+    legal: "Правовая информация",
+    contact: "Контакты",
+    privacy: "Конфиденциальность",
+    terms: "Условия",
+    address: "Ташкент, Узбекистан.",
+    legalDocuments: {
+      privacy: {
+        title: "Политика конфиденциальности",
+        updated: "Обновлено: 10 июня 2026 года",
+        intro: "H+ находится на стадии pre-MVP. Эта политика объясняет, как могут использоваться контактные данные, отправленные через сайт.",
+        sections: [
+          { title: "Какие данные собираются", body: "Форма запроса демо может собирать имя, email, организацию, роль, страну и необязательный комментарий. Сайт не предназначен для сбора клинических или медицинских данных." },
+          { title: "Как используются данные", body: "Данные используются для ответа на запрос, организации потенциального пилота или партнерского разговора и анализа интереса к планируемому продукту." },
+          { title: "Передача и хранение", body: "H+ не продает контактные данные. Они не передаются без разрешения, кроме необходимых технических провайдеров. Правила хранения будут уточняться по мере развития продукта и правовой базы." },
+          { title: "Ваш запрос", body: "Для доступа, исправления или удаления данных напишите на info@hplus.uz." }
+        ]
+      },
+      terms: {
+        title: "Условия использования",
+        updated: "Обновлено: 10 июня 2026 года",
+        intro: "Этот сайт является pre-MVP презентацией проекта H+, планируемого продукта и исследования рынка.",
+        sections: [
+          { title: "Статус продукта", body: "H+ пока не является готовым MVP, публичным сервисом или медицинской информационной системой. Функции сайта показывают планируемое направление продукта." },
+          { title: "Не является консультацией", body: "Материалы сайта не являются медицинской, юридической или финансовой консультацией. Страница для инвесторов не является публичным инвестиционным предложением." },
+          { title: "Рыночные данные", body: "Рыночные показатели основаны на открытых источниках и осторожных внутренних оценках. Из-за различий в методах учета их нельзя считать единой официальной базой данных." },
+          { title: "Интеллектуальная собственность и контакты", body: "Название H+, дизайн и контент сайта могут охраняться применимыми правами. По вопросам обращайтесь на info@hplus.uz." }
+        ]
+      }
     }
   },
   nav: { ...en.nav, traction: "Статус" }
