@@ -212,8 +212,8 @@ const uz = {
   },
   solutions: {
     eyebrow: "H+ yechimlari",
-    headline: "Har bir ishtirokchi uchun yagona tibbiy ekotizim",
-    subheadline: "H+ klinika, shifokor, bemor, laboratoriya, dorixona, sug'urta va kelajakdagi e-sog'liq integratsiyalarini bitta xavfsiz operatsion tizimga birlashtiradi.",
+    headline: "Klinika, shifokor va bemor uchun bitta tizim",
+    subheadline: "H+ qabul, navbat, bemor tarixi, tahlil natijalari va klinika boshqaruvini bir joyga yig'ishni maqsad qiladi.",
     cards: {
       clinics: {
         title: "Xususiy klinikalar",
@@ -235,15 +235,15 @@ const uz = {
       },
       partners: {
         title: "Laboratoriya, dorixona va sug'urta",
-        tag: "Integratsiya tayyorligi",
-        desc: "H+ tashqi xizmatlar bilan ma'lumot almashish, buyurtma, natija va hisob-kitob oqimlarini tartibga solish uchun API yondashuvini taklif qiladi.",
-        bullets: ["Laboratoriya natijalarini ulash", "Dorixona va ombor oqimlari", "Sug'urta jarayonlari uchun tayyor struktura"]
+        tag: "Tizimlarni bog'lash",
+        desc: "H+ laboratoriya natijalari, dorixona ma'lumotlari va sug'urta jarayonlarini klinika tizimi bilan bog'lash uchun ishlab chiqiladi.",
+        bullets: ["Laboratoriya natijalarini klinikaga yuborish", "Dori va ombor ma'lumotlarini bog'lash", "Sug'urta jarayonlarini tartibga solish"]
       },
       government: {
         title: "Davlat va e-sog'liq tizimlari",
-        tag: "Auditga tayyor arxitektura",
-        desc: "H+ kelajakdagi davlat e-sog'liq integratsiyalari, anonimlashtirilgan statistik hisobotlar va auditga tayyor ma'lumot arxitekturasi uchun moslashtiriladi.",
-        bullets: ["Role-based access", "Audit log va xavfsizlik yondashuvi", "Kelajakdagi e-sog'liq API integratsiyalari"]
+        tag: "Xavfsiz ma'lumot almashish",
+        desc: "H+ kelajakda davlat e-sog'liq tizimlari bilan xavfsiz ma'lumot almashishga mos qilib quriladi.",
+        bullets: ["Har bir rol uchun alohida ruxsat", "Amallar tarixini saqlash", "Davlat tizimlariga ulanish imkoniyati"]
       }
     },
     workflow: {
@@ -253,14 +253,14 @@ const uz = {
       items: [
         { problem: "Bronlar telefon va chatlarda tarqalib ketadi.", solution: "H+ bron, check-in va navbatni yagona oqimga yig'adi.", result: "Klinika qabul jarayonini real vaqt rejimida ko'radi." },
         { problem: "Bemor tarixi qog'ozlarda yoki alohida fayllarda qolib ketadi.", solution: "EHR bemor tashriflari, retseptlari va tahlillarini tartibli saqlaydi.", result: "Shifokor kerakli ma'lumotni tezroq topadi." },
-        { problem: "Laboratoriya, dorixona va sug'urta jarayonlari alohida yuradi.", solution: "H+ API yondashuvi orqali tashqi xizmatlarni ulashga tayyor bo'ladi.", result: "Ma'lumot almashinuvi va hisob-kitoblar ancha tartibli bo'ladi." },
-        { problem: "Rahbar klinika yuklamasi va daromadni kech ko'radi.", solution: "Analytics & AI operatsion ko'rsatkichlarni tushunarli panelga chiqaradi.", result: "Boshqaruv qarorlari aniqroq ma'lumotga tayanadi." }
+        { problem: "Laboratoriya, dorixona va sug'urta jarayonlari alohida yuradi.", solution: "H+ bu xizmatlarni klinikaning umumiy tizimiga ulash uchun tayyorlanadi.", result: "Natijalar va hisob-kitoblarni kuzatish osonlashadi." },
+        { problem: "Rahbar klinika yuklamasi va daromadni kech ko'radi.", solution: "H+ asosiy ko'rsatkichlarni tushunarli boshqaruv panelida ko'rsatadi.", result: "Rahbar qarorlarni aniqroq ma'lumot asosida qabul qiladi." }
       ]
     },
     banner: {
-      eyebrow: "Yagona tibbiy infratuzilma",
-      title: "H+ klinikani oddiy CRM emas, to'liq operatsion tizim sifatida boshqaradi",
-      desc: "Platforma klinika ichidagi kundalik jarayonlarni, bemor tajribasini va tashqi integratsiyalarni yagona xavfsiz ekotizimga yig'adi."
+      eyebrow: "Bitta boshqaruv tizimi",
+      title: "H+ klinikaning kundalik ishlarini bir joyda boshqarishga yordam beradi",
+      desc: "Qabul, navbat, bemor ma'lumotlari, hisobotlar va tashqi xizmatlar bitta tushunarli tizimda ishlashi rejalashtirilgan."
     }
   },
   market: {
