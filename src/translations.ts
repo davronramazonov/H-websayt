@@ -2,7 +2,7 @@ import { Language } from './types';
 
 const uz = {
   common: {
-    demoBtn: "Aloqa so'rash",
+    demoBtn: "Demo so'rash",
     partnerBtn: "Investor ma'lumoti",
     learnMore: "Batafsil",
     submit: "Yuborish",
@@ -714,7 +714,7 @@ const en = {
   ...uz,
   common: {
     ...uz.common,
-    demoBtn: "Request Contact",
+    demoBtn: "Request Demo",
     partnerBtn: "Investor Info",
     learnMore: "Learn More",
     submit: "Submit",
@@ -1151,7 +1151,7 @@ const ru = {
   ...en,
   common: {
     ...en.common,
-    demoBtn: "Связаться",
+    demoBtn: "Запросить демо",
     partnerBtn: "Для инвесторов",
     language: "Язык"
   },
