@@ -76,7 +76,8 @@ const uz = {
     traction: "Holat",
     pricing: "Tariflar",
     company: "Kompaniya",
-    investors: "Investorlar"
+    investors: "Investorlar",
+    interview: "Intervyu"
   },
   hero: {
     badge: "Pre-MVP bosqichidagi healthtech infratuzilma startapi",
@@ -758,7 +759,7 @@ const en = {
     enforcingCompliance: "Regulatory and ecosystem alignment",
     openMarketOpportunity: "Open market opportunity",
   },
-  nav: { product: "Product", solutions: "Solutions", market: "Market", traction: "Status", pricing: "Pricing", company: "Company", investors: "Investors" },
+  nav: { product: "Product", solutions: "Solutions", market: "Market", traction: "Status", pricing: "Pricing", company: "Company", investors: "Investors", interview: "Interview" },
   hero: {
     badge: "Pre-MVP healthtech infrastructure startup",
     headline: "Building healthcare infrastructure for Central Asia",
@@ -1636,6 +1637,49 @@ const ru = {
     }
   },
   nav: { ...en.nav, traction: "Статус" }
+};
+
+ru.nav.interview = "Интервью";
+
+export const clinicInterviewUi: Record<Language, Record<string, string>> = {
+  uz: {
+    title: "Klinikalar intervyusi", subtitle: "2-3 daqiqalik field research vositasi", selectRole: "Suhbatdosh rolini tanlang",
+    administrator: "Administrator / Registratura", director: "Rahbar / Direktor", doctor: "Shifokor", clinicDetails: "Klinika ma'lumotlari",
+    clinicName: "Klinika nomi", city: "Shahar / tuman", interviewee: "Suhbatdosh ismi yoki lavozimi", date: "Sana",
+    interviewer: "Intervyu oluvchi", dailyPatients: "Kunlik bemor soni", notes: "Qisqa izoh", start: "Savollarni boshlash",
+    answer: "Javobni aynan suhbatdosh aytganidek yozing...", important: "Muhim javob", pain: "Og'riq darajasi",
+    next: "Keyingi savol", previous: "Oldingi savol", finish: "Intervyuni yakunlash", requiredRating: "Bu savol uchun rating tanlang.",
+    result: "Natija", biggestPain: "Eng katta og'riq", lowRatings: "Eng past rating berilgan savollar", importantAnswers: "Muhim javoblar",
+    automation: "Tanlangan avtomatlashtirish jarayoni", pilot: "Pilotga qiziqish", conclusion: "Umumiy xulosa",
+    newInterview: "Yangi intervyu", json: "JSON yuklab olish", csv: "CSV yuklab olish", print: "Print / PDF ko'rinishi",
+    savedStatus: "LocalStoragega saqlandi", saved: "Saqlangan intervyular", view: "Ko'rish", remove: "O'chirish", noSaved: "Hozircha saqlangan intervyu yo'q.",
+    changeRole: "Rolni o'zgartirish", requiredForm: "Klinika nomi va intervyu oluvchini kiriting.", notSpecified: "Ko'rsatilmagan"
+  },
+  ru: {
+    title: "Интервью с клиниками", subtitle: "Инструмент для полевого интервью на 2-3 минуты", selectRole: "Выберите роль собеседника",
+    administrator: "Администратор / Регистратура", director: "Руководитель / Директор", doctor: "Врач", clinicDetails: "Данные клиники",
+    clinicName: "Название клиники", city: "Город / район", interviewee: "Имя или должность собеседника", date: "Дата",
+    interviewer: "Интервьюер", dailyPatients: "Пациентов в день", notes: "Краткая заметка", start: "Начать вопросы",
+    answer: "Запишите ответ дословно...", important: "Важный ответ", pain: "Уровень боли", next: "Следующий вопрос",
+    previous: "Предыдущий вопрос", finish: "Завершить интервью", requiredRating: "Выберите рейтинг для этого вопроса.", result: "Результат",
+    biggestPain: "Главная проблема", lowRatings: "Вопросы с самым низким рейтингом", importantAnswers: "Важные ответы",
+    automation: "Выбранный процесс автоматизации", pilot: "Интерес к пилоту", conclusion: "Общий вывод", newInterview: "Новое интервью",
+    json: "Скачать JSON", csv: "Скачать CSV", print: "Версия для печати / PDF", savedStatus: "Сохранено в LocalStorage",
+    saved: "Сохраненные интервью", view: "Открыть", remove: "Удалить", noSaved: "Сохраненных интервью пока нет.",
+    changeRole: "Изменить роль", requiredForm: "Введите название клиники и имя интервьюера.", notSpecified: "Не указано"
+  },
+  en: {
+    title: "Clinic Interview", subtitle: "A 2-3 minute field research tool", selectRole: "Select the interviewee role",
+    administrator: "Administrator / Reception", director: "Manager / Director", doctor: "Doctor", clinicDetails: "Clinic details",
+    clinicName: "Clinic name", city: "City / district", interviewee: "Interviewee name or title", date: "Date", interviewer: "Interviewer",
+    dailyPatients: "Daily patients", notes: "Short note", start: "Start questions", answer: "Write the answer in the interviewee's exact words...",
+    important: "Important answer", pain: "Pain level", next: "Next question", previous: "Previous question", finish: "Finish interview",
+    requiredRating: "Select a rating for this question.", result: "Result", biggestPain: "Biggest pain", lowRatings: "Lowest-rated questions",
+    importantAnswers: "Important answers", automation: "Selected automation process", pilot: "Pilot interest", conclusion: "Overall conclusion",
+    newInterview: "New interview", json: "Download JSON", csv: "Download CSV", print: "Print / PDF view", savedStatus: "Saved to LocalStorage",
+    saved: "Saved interviews", view: "View", remove: "Delete", noSaved: "No saved interviews yet.", changeRole: "Change role",
+    requiredForm: "Enter the clinic name and interviewer.", notSpecified: "Not specified"
+  }
 };
 
 export const translations: Record<Language, any> = { uz, ru, en };

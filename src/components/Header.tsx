@@ -26,6 +26,7 @@ export default function Header({ lang, setLang, activePage, setActivePage, onReq
     { id: 'pricing' as PageId, label: t.nav.pricing },
     { id: 'company' as PageId, label: t.nav.company },
     { id: 'investors' as PageId, label: t.nav.investors },
+    { id: 'interview' as PageId, label: t.nav.interview },
   ];
 
   const languages: { code: Language; label: string }[] = [

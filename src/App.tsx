@@ -10,6 +10,7 @@ import Traction from './components/Traction';
 import Pricing from './components/Pricing';
 import Company from './components/Company';
 import Investors from './components/Investors';
+import ClinicInterview from './components/ClinicInterview';
 import RequestDemoModal from './components/RequestDemoModal';
 import LegalModal, { type LegalDocument } from './components/LegalModal';
 import { Language, PageId } from './types';
@@ -47,6 +48,7 @@ export default function App() {
             {activePage === 'pricing' && <Pricing lang={lang} onRequestDemo={() => setIsDemoModalOpen(true)} />}
             {activePage === 'company' && <Company lang={lang} />}
             {activePage === 'investors' && <Investors lang={lang} />}
+            {activePage === 'interview' && <ClinicInterview lang={lang} />}
           </motion.div>
         </AnimatePresence>
       </main>

@@ -50,6 +50,7 @@ export default function Footer({ lang, setActivePage, onRequestDemo, onOpenLegal
             <li><button onClick={() => handleNavClick('market')} className="hover:text-[#2563EB] transition-colors text-left cursor-pointer">{t.nav.market}</button></li>
             <li><button onClick={() => handleNavClick('traction')} className="hover:text-[#2563EB] transition-colors text-left cursor-pointer">{t.nav.traction}</button></li>
             <li><button onClick={() => handleNavClick('company')} className="hover:text-[#2563EB] transition-colors text-left cursor-pointer">{t.nav.company}</button></li>
+            <li><button onClick={() => handleNavClick('interview')} className="hover:text-[#2563EB] transition-colors text-left cursor-pointer">{t.nav.interview}</button></li>
           </ul>
         </div>
 
